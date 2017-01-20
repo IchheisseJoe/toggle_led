@@ -1,7 +1,8 @@
 #include <ros/ros.h>
 #include <std_msgs/Empty.h>
 #include <iostream>
-#include <boost/concept_check.hpp>
+//#include <boost/concept_check.hpp>
+#include <toggle_led/getch.h>
 
 using namespace std;
 
@@ -14,8 +15,8 @@ int main(int argc, char* argv[])
 	int ch;
 	do
 	{
-		ch=getchar();
-		printf("\033[2A\033[C\n");
+		ch=getch(); //getchar();
+		printf("\033[A\033[C\n");
 		Pub.publish(empty);
 		ros::spinOnce();
 		
